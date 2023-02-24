@@ -15,9 +15,9 @@ function palindrome(String) {
   return String === String.split('').reverse().join('');
 }
 
-palindrome('топот');  // true
-palindrome('ДовОд');  // true
-palindrome('Кекс');   // false
+palindrome('топот');// true
+palindrome('ДовОд');// true
+palindrome('Кекс');// false
 
 
 // Функция, которая принимает строку, извлекает содержащиеся в ней цифры от 0 до 9
@@ -35,11 +35,11 @@ const extractNumber = (string) => {
   return parseInt(result, 10);
 };
 
-extractNumber('2023 год');            // 2023
-extractNumber('ECMAScript 2022');     // 2022
+extractNumber('2023 год');// 2023
+extractNumber('ECMAScript 2022');// 2022
 extractNumber('1 кефир, 0.5 батона'); // 105
-extractNumber('агент 007');           // 7
-extractNumber('а я томат');           // NaN
+extractNumber('агент 007'); // 7
+extractNumber('а я томат');// NaN
 
 
 // Функция, которая принимает три параметра
@@ -55,16 +55,16 @@ const myPadStart = (string, minLength, pad) => {
 };
 
 // Добавочный символ использован один раз
-myPadStart('1', 2, '0');      // '01'
+myPadStart('1', 2, '0');// '01'
 
 // Добавочный символ использован три раза
-myPadStart('1', 4, '0');      // '0001'
+myPadStart('1', 4, '0');// '0001'
 
 // Добавочные символы обрезаны с конца
-myPadStart('q', 4, 'werty');  // 'werq'
+myPadStart('q', 4, 'werty');// 'werq'
 
 // Добавочные символы использованы полтора раза
-myPadStart('q', 4, 'we');     // 'wweq'
+myPadStart('q', 4, 'we');// 'wweq'
 
 // Добавочные символы не использованы, исходная строка не изменена
 myPadStart('qwerty', 4, '0'); // 'qwerty'
