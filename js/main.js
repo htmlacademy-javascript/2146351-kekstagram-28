@@ -79,4 +79,5 @@ const createDescriptions = () => ({
 
 const similarDescriptions = Array.from({length: SIMILAR_DESCRIPTIONS_COUNT}, createDescriptions);
 
+// eslint-disable-next-line no-console
 console.log(similarDescriptions);
