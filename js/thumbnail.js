@@ -11,6 +11,7 @@ const createThumbnail = ({url, likes, comments}) => {
   thumbanail.querySelector('.picture__comments').textContent = comments;
 
   return thumbanail;
+};
 
 const renderThumbnails = (pictures) => {
   const fragment = document.createDocumentFragment();
