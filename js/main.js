@@ -1,5 +1,5 @@
-
-import {similarDescriptions} from './data.js';
+import './util.js';
+import {getPictures} from './data.js';
 import { renderThumbnails } from './thumbnail.js';
 
-renderThumbnails(similarDescriptions());
+renderThumbnails(getPictures());
