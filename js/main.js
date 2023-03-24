@@ -1,5 +1,4 @@
-import './util.js';
 import {getPictures} from './data.js';
-import { renderThumbnails } from './thumbnail.js';
+import { renderGallery} from './gallery.js';
 
-renderThumbnails(getPictures());
+renderGallery(getPictures());
