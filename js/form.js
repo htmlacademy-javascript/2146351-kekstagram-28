@@ -8,8 +8,8 @@ const TAG_ERROR_TEXT = 'Неправильно заполнены хэштеги
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
-const cancelButton = document.querySelector('.#upload-cancel');
-const fileField = document.querySelector('.#upload-file');
+const cancelButton = document.querySelector('#upload-cancel');
+const fileField = document.querySelector('#upload-file');
 const hashtagField = document.querySelector('.text__hashtags');
 const commentField = document.querySelector('.text__description');
 
@@ -82,6 +82,11 @@ const onFormSubmit = (evt) => {
   pristine.validate();
 };
 
-fileField.addEventLIistener('change', onFileInputChange);
-cancelButton.addEventLIistener('click', onCancelButtonClick);
-form.addEventLIistener('submit', onFormSubmit);
+const setupForm = () => {
+  fileField.addEventListener('change', onFileInputChange);
+  cancelButton.addEventListener('click', onCancelButtonClick);
+  form.addEventListener('submit', onFormSubmit);
+  pristine.addValidator(hashtagField, validateTags, TAG_ERROR_TEXT);
+};
+
+export { setupForm };
