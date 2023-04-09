@@ -68,7 +68,7 @@ const hideSlider = () => {
 };
 
 const updateSlider = () => {
-  sliderElement.nouUiSLider.updateOptions({
+  sliderElement.noUiSlider.updateOptions({
     range: {
       min: chosenEffect.min,
       max: chosenEffect.max,
@@ -88,13 +88,13 @@ const onEffectsChange = (evt) => {
   if (!evt.target.classList.contains('effects__radio')) {
     return;
   }
-  chosenEffect = EFFECTS.find((effect) => effect.name === evt.target);
+  chosenEffect = EFFECTS.find((effect) => effect.name === evt.target.value);
   imageElement.className = `effects __preview--${chosenEffect.name}`;
   updateSlider();
 };
 
 const onSliderUpdate = () => {
-  const sliderValue = sliderElement.nouUiSLider.get();
+  const sliderValue = sliderElement.noUiSlider.get();
   imageElement.style.filter = isDefault()
     ? DEFAULT_EFFECT.style
     : `${chosenEffect.style}(${sliderValue}${chosenEffect.unit})`;
@@ -106,8 +106,7 @@ const resetEffects = () => {
   updateSlider();
 };
 
-// eslint-disable-next-line no-undef
-nouUiSLider.create(sliderElement, {
+noUiSlider.create(sliderElement, {
   range: {
     min: DEFAULT_EFFECT.min,
     max: DEFAULT_EFFECT.max,
@@ -119,6 +118,6 @@ nouUiSLider.create(sliderElement, {
 hideSlider();
 
 effectsElement.addEventListener('change', onEffectsChange);
-sliderElement.nouUiSLider.on('update', onSliderUpdate);
+sliderElement.noUiSlider.on('update', onSliderUpdate);
 
 export {resetEffects};
