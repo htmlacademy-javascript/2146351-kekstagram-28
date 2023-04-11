@@ -1,7 +1,14 @@
-import {getPictures} from './data.js';
-import { renderGallery} from './gallery.js';
+import { renderGallery } from './gallery.js';
 import { setupForm } from './form.js';
+import { getData } from './load.js';
+import { showAlert } from './alert.js';
+import './upload-images.js';
 
 setupForm();
-renderGallery(getPictures());
 
+try {
+  const data = await getData();
+  renderGallery(data);
+} catch (err) {
+  showAlert(err.message);
+}
