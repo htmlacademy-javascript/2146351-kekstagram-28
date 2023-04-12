@@ -1,14 +1,17 @@
 import { renderGallery } from './gallery.js';
 import { setupForm } from './form.js';
 import { getData } from './load.js';
-import { showAlert } from './alert.js';
-import './upload-images.js';
+import { showAlert, debounce } from './alert.js';
+import { initFilters, getFilteredPictures } from './filter.js';
+
 
 setupForm();
 
 try {
   const data = await getData();
-  renderGallery(data);
+  const debouncedRenderGallery = debounce(renderGallery);
+  initFilters(data, debouncedRenderGallery);
+  renderGallery(getFilteredPictures());
 } catch (err) {
   showAlert(err.message);
 }

@@ -17,7 +17,7 @@ const showAlert = (message) => {
     alert.remove();
   }, ALERT_SHOW_TIME);
 };
-/*
+
 function debounce (callback, timeoutDelay = 500) {
   let timeoutId;
   return (...rest) => {
@@ -35,6 +35,6 @@ function throttle (callback, delayBetweenFrames) {
       lastTime = now;
     }
   };
-} */
+}
 
-export { showAlert };
+export { showAlert, debounce, throttle };
