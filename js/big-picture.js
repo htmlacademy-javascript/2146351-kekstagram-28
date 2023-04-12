@@ -37,10 +37,11 @@ const renderComments = () => {
     const commentElement = createComment(comments[i]);
     fragment.append(commentElement);
   }
-
+  commentCount.innerHTML =
+  `${commentsShown} из <span class="comments-count">${comments.length}</span> комментариев`;
   commentList.innerHTML = '';
   commentList.append(fragment);
-  commentCount.innerHTML = `${commentsShown}`;
+
 };
 
 const onCommentsLoaderClick = () => {
@@ -84,7 +85,6 @@ const showBigPicture = (picture) => {
   bigPicture.classList.remove('hidden');
   body.classList.add('modal-open');
   commentsLoader.classList.add('hidden');
-  commentCount.classList.add('hidden');
   document.addEventListener('keydown', onDocumentKeydown);
   cancelButton.addEventListener('click', onCancelButtonClick);
   likesCounter = picture.likes;
