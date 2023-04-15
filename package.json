@@ -11,10 +11,10 @@
     "url": "https://github.com/htmlacademy-javascript/2146351-kekstagram-28/issues"
   },
   "devDependencies": {
-    "browser-sync": "2.27.5",
+    "browser-sync": "^2.27.5",
     "eslint": "8.33.0",
     "eslint-config-htmlacademy": "9.0.0",
-    "eslint-plugin-no-template-curly-in-string-fix": "1.0.4"
+    "eslint-plugin-no-template-curly-in-string-fix": "^1.0.4"
   },
   "license": "MIT",
   "scripts": {
