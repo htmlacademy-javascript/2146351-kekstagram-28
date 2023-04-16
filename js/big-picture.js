@@ -32,16 +32,16 @@ const renderComments = () => {
     commentsLoader.classList.remove('hidden');
   }
 
+
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < commentsShown; i++) {
     const commentElement = createComment(comments[i]);
     fragment.append(commentElement);
   }
-  commentCount.innerHTML =
-  `${commentsShown} из <span class="comments-count">${comments.length}</span> комментариев`;
+
+  commentCount.innerHTML = `${commentsShown} из <span class="comments-count">${comments.length}</span> комментариев`;
   commentList.innerHTML = '';
   commentList.append(fragment);
-
 };
 
 const onCommentsLoaderClick = () => {
@@ -67,7 +67,6 @@ const onCancelButtonClick = () => {
   hideBigPicture();
 };
 
-
 const onLikesHeartClick = () => {
   likesCounter += 1;
   bigPicture.querySelector('.likes-count').textContent = likesCounter;
@@ -87,7 +86,9 @@ const showBigPicture = (picture) => {
   commentsLoader.classList.add('hidden');
   document.addEventListener('keydown', onDocumentKeydown);
   cancelButton.addEventListener('click', onCancelButtonClick);
+  commentsLoader.addEventListener ('click', onCommentsLoaderClick);
   likesCounter = picture.likes;
+
   renderPictureDetails(picture);
   renderComments();
 
@@ -95,4 +96,4 @@ const showBigPicture = (picture) => {
   likesHeart.addEventListener('click', onLikesHeartClick);
 };
 
-export {showBigPicture};
+export { showBigPicture };
