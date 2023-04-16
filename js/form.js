@@ -1,5 +1,5 @@
-import {resetScale} from './scale.js';
-import {resetEffects} from './effect.js';
+import { resetScale } from './scale.js';
+import { resetEffects } from './effect.js';
 import { sendData } from './load.js';
 import { showSuccessMessage, showErrorMessage } from './message.js';
 
@@ -36,7 +36,6 @@ const hideModal = () => {
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
   document.body.removeEventListener('keydown', onDocumentKeydown);
-  resetScale();
 };
 
 const isTextFieldFocused = () =>
@@ -47,7 +46,7 @@ const existMessageElement = () =>
   document.querySelector('.error');
 
 function onDocumentKeydown(evt) {
-  if (evt.key === 'Escape' && !isTextFieldFocused() && existMessageElement()) {
+  if (evt.key === 'Escape' && !isTextFieldFocused() && !existMessageElement()) {
     evt.preventDefault();
     hideModal();
   }
@@ -73,7 +72,7 @@ const hasUniqueTags = (tags) => {
 const validateTags = (value) => {
   const tags = value
     .trim()
-    .split('')
+    .split(' ')
     .filter((tag) => tag.trim().length);
   return hasValidCount(tags) && hasUniqueTags(tags) && tags.every(isValidTag);
 };
@@ -118,7 +117,11 @@ const setupForm = () => {
   overlay.addEventListener('click', (event) => {
     event.stopPropagation();
   });
-  pristine.addValidator(hashtagField, validateTags, TAG_ERROR_TEXT);
+  pristine.addValidator(
+    hashtagField,
+    validateTags,
+    TAG_ERROR_TEXT
+  );
 };
 
 export { setupForm };
