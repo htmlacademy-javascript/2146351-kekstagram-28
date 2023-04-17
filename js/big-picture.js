@@ -1,4 +1,4 @@
-import { isEscapeKey } from './util';
+import { isEscapeKey } from './util.js';
 
 const COMMENTS_PER_PORTION = 5;
 let likesCounter = 0;
