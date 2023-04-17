@@ -1,3 +1,5 @@
+import { isEscapeKey } from './util.js';
+
 const successMessageElement = document
   .querySelector('#success')
   .content.querySelector('.success');
@@ -58,7 +60,7 @@ const showErrorMessage = () => {
 };
 
 function onDocumentKeydown(evt) {
-  if (evt.key === 'Escape') {
+  if (isEscapeKey(evt)) {
     evt.stopPropagation();
     hideSuccessMessage();
     hideErrorMessage();

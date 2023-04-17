@@ -2,6 +2,7 @@ import { resetScale } from './scale.js';
 import { resetEffects } from './effect.js';
 import { sendData } from './load.js';
 import { showSuccessMessage, showErrorMessage } from './message.js';
+import { isEscapeKey } from './util.js';
 
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i;
@@ -46,7 +47,7 @@ const existMessageElement = () =>
   document.querySelector('.error');
 
 function onDocumentKeydown(evt) {
-  if (evt.key === 'Escape' && !isTextFieldFocused() && !existMessageElement()) {
+  if (isEscapeKey(evt) && !isTextFieldFocused() && !existMessageElement()) {
     evt.preventDefault();
     hideModal();
   }
