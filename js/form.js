@@ -46,7 +46,7 @@ const existMessageElement = () =>
   document.querySelector('.error');
 
 function onDocumentKeydown(evt) {
-  if (evt.key === 'Escape' && !isTextFieldFocused() && !existMessageElement()) {
+  if (isEscapeKey(evt) && !isTextFieldFocused() && !existMessageElement()) {
     evt.preventDefault();
     hideModal();
   }
